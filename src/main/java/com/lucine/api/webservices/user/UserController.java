@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 
@@ -17,5 +18,9 @@ public class UserController {
         return service.getAll();
     }
 
+    @PostMapping()
+    public User authUser(@RequestBody String userLogin) {
+        return this.service.authUser(userLogin);
+    }
 
 }
