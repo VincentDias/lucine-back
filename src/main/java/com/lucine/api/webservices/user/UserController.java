@@ -1,9 +1,7 @@
 package com.lucine.api.webservices.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,8 +12,9 @@ public class UserController {
     @Autowired UserService service;
 
     @GetMapping()
+    @CrossOrigin
     public List<User> getAll() {
-        return this.service.getAll();
+        return service.getAll();
     }
 
 

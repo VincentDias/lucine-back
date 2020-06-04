@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public class UserRepository {
 
-    private final static String DB_URL = "jdbc:mysql://127.0.0.1:3306/lucine?serverTimezone=GMT";
+    private final static String DB_URL = "jdbc:mysql://172.17.0.2:3306/Lucine?serverTimezone=GMT";
     private final static String DB_USER = "lucine";
     private final static String DB_PASSWORD = "lucine";
 
@@ -25,7 +25,7 @@ public class UserRepository {
                     DB_URL, DB_USER, DB_PASSWORD
             );
             statement = connection.prepareStatement(
-                    "SELECT * FROM user;"
+                    "SELECT * FROM User;"
             );
             resultSet = statement.executeQuery();
 
@@ -45,7 +45,6 @@ public class UserRepository {
         } finally {
         }
         return users;
-
     }
 }
 
