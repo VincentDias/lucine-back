@@ -17,4 +17,8 @@ public class UserService {
         return this.repository.findAll();
     }
 
+    public User authUser(String userLogin) {
+        return this.repository.authUser(userLogin);
+    }
+
 }
