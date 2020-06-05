@@ -8,9 +8,9 @@ import java.util.List;
 @Repository
 public class UserRepository {
 
-    private final static String DB_URL = "jdbc:mysql://172.17.0.2:3306/Lucine?serverTimezone=GMT";
-    private final static String DB_USER = "lucine";
-    private final static String DB_PASSWORD = "lucine";
+    private final static String DB_URL = System.getenv("lucine_db_url");
+    private final static String DB_USER = System.getenv("lucine_db_user");
+    private final static String DB_PASSWORD = System.getenv("lucine_db_password");
 
     public List<User> findAll(){
 
