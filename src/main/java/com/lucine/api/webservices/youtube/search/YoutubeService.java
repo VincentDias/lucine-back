@@ -1,6 +1,7 @@
 package com.lucine.api.webservices.youtube.search;
 
-import com.lucine.YoutubeVideos;
+
+import com.lucine.api.webservices.youtube.search.models.YoutubeVideo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -9,7 +10,7 @@ import java.util.List;
 @Service
 public class YoutubeService {
 
-    public YoutubeVideos getYoutubeVideos(List<String> keywords) {
+    public YoutubeVideo getYoutubeVideos(List<String> keywords) {
         WebClient webClient = WebClient
                 .builder()
                 .baseUrl("https://www.googleapis.com/youtube/v3")
@@ -25,6 +26,6 @@ public class YoutubeService {
                         .queryParam("key", "AIzaSyBiT2_dE36crA2m4jeXNX20fDSDS7uXq1A")
                         .build())
                 .retrieve()
-                .bodyToMono(YoutubeVideos.class).block();
+                .bodyToMono(YoutubeVideo.class).block();
     }
 }

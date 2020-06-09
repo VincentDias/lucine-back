@@ -1,5 +1,5 @@
 
-package com.lucine;
+package com.lucine.api.webservices.youtube.search.models;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,7 +1,8 @@
 
-package com.lucine.api.webservices.youtube.comments.models;
+package com.lucine.api.webservices.youtube.search.models;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -14,19 +15,25 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
     "kind",
     "etag",
-    "id",
-    "snippet"
+    "nextPageToken",
+    "regionCode",
+    "pageInfo",
+    "items"
 })
-public class TopLevelComment {
+public class YoutubeVideo {
 
     @JsonProperty("kind")
     private String kind;
     @JsonProperty("etag")
     private String etag;
-    @JsonProperty("id")
-    private String id;
-    @JsonProperty("snippet")
-    private Snippet_ snippet;
+    @JsonProperty("nextPageToken")
+    private String nextPageToken;
+    @JsonProperty("regionCode")
+    private String regionCode;
+    @JsonProperty("pageInfo")
+    private PageInfo pageInfo;
+    @JsonProperty("items")
+    private List<Item> items = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -50,24 +57,44 @@ public class TopLevelComment {
         this.etag = etag;
     }
 
-    @JsonProperty("id")
-    public String getId() {
-        return id;
+    @JsonProperty("nextPageToken")
+    public String getNextPageToken() {
+        return nextPageToken;
     }
 
-    @JsonProperty("id")
-    public void setId(String id) {
-        this.id = id;
+    @JsonProperty("nextPageToken")
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
     }
 
-    @JsonProperty("snippet")
-    public Snippet_ getSnippet() {
-        return snippet;
+    @JsonProperty("regionCode")
+    public String getRegionCode() {
+        return regionCode;
     }
 
-    @JsonProperty("snippet")
-    public void setSnippet(Snippet_ snippet) {
-        this.snippet = snippet;
+    @JsonProperty("regionCode")
+    public void setRegionCode(String regionCode) {
+        this.regionCode = regionCode;
+    }
+
+    @JsonProperty("pageInfo")
+    public PageInfo getPageInfo() {
+        return pageInfo;
+    }
+
+    @JsonProperty("pageInfo")
+    public void setPageInfo(PageInfo pageInfo) {
+        this.pageInfo = pageInfo;
+    }
+
+    @JsonProperty("items")
+    public List<Item> getItems() {
+        return items;
+    }
+
+    @JsonProperty("items")
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     @JsonAnyGetter
