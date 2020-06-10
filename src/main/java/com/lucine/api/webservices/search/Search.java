@@ -10,8 +10,9 @@ public class Search {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
+
+    @Temporal(TemporalType.DATE)
     private Date searchDate;
 
     public Search(){}

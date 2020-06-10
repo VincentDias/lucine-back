@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface SearchRepository extends JpaRepository<Search, Long> {
 
+    List<Search> findAllBySearchDate(Date searchDate);
 }

@@ -10,20 +10,21 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/Search")
+@CrossOrigin
 
 public class SearchController {
 
     @Autowired
-    SearchRepository searchRepository;
+    SearchService service;
 
     @GetMapping()
     public List<Search> index(){
-        return searchRepository.findAll();
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Search getOne(@PathVariable Long id){
-        return searchRepository.findById(id).get();
+    public Search getById(@PathVariable Long id){
+        return service.getById(id);
     }
 
     /*
