@@ -21,16 +21,6 @@ public class User {
 
     public User(){}
 
-    public User(Long id, String login, String password, String lastName, String firstName, String role, String mail) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.role = role;
-        this.mail = mail;
-    }
-
     public Long getId() {
         return id;
     }
