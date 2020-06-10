@@ -29,12 +29,10 @@ public class UserController {
         return service.createUser(user);
     }
 
-
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user){
         return service.updateUser(id, user);
     }
-
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

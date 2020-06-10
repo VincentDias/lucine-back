@@ -38,7 +38,6 @@ public class UserService {
         return;
     }
 
-
     /*public User authUser(String userLogin) {
         return this.repository.authUser(userLogin);
     }*/
