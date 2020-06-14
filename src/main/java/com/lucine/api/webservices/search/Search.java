@@ -1,7 +1,10 @@
 package com.lucine.api.webservices.search;
 
+import com.lucine.api.webservices.video.Video;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="search")
@@ -15,12 +18,11 @@ public class Search {
     @Temporal(TemporalType.DATE)
     private Date searchDate;
 
-    public Search(){}
+    @OneToMany
+    @JoinColumn(name ="search_id")
+    private List<Video> videos;
 
-    public Search(Long id, Date searchDate){
-        this.id = id;
-        this.searchDate = searchDate;
-    }
+    public Search(){}
 
     public Long getId() {
         return id;
@@ -36,5 +38,21 @@ public class Search {
 
     public void setDateSearch(Date searchDate) {
         this.searchDate = searchDate;
+    }
+
+    public Date getSearchDate() {
+        return searchDate;
+    }
+
+    public void setSearchDate(Date searchDate) {
+        this.searchDate = searchDate;
+    }
+
+    public List<Video> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 }

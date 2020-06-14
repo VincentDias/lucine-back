@@ -6,33 +6,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/videos")
 public class VideoController {
 
     @Autowired
     VideoService service;
 
-    @GetMapping("/videos")
+    @GetMapping()
     public List<Video> getVideos() {
         return service.getAll();
     }
 
-    @GetMapping("/videos/{id}")
+    @GetMapping("/{id}")
         public Video getVideoById(@PathVariable int id) {
             return service.getVideoById(id);
         }
 
-    @PostMapping("/videos")
+    @PostMapping("")
     public Video create(@RequestBody Video video) {
         return service.saveVideo(video);
     }
 
-    @PutMapping("/videos/{id}")
+    @PutMapping("/{id}")
     public Video update(@PathVariable int id, @RequestBody Video video) {
 
         return service.updateVideo(id, video);
     }
 
-    @DeleteMapping("/videos/{id}")
+    @DeleteMapping("/{id}")
     public boolean delete(@PathVariable int id) {
        return service.deleteVideo(id);
     }
