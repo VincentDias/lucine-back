@@ -18,7 +18,7 @@ public class VideoController {
     }
 
     @GetMapping("/{id}")
-        public Video getVideoById(@PathVariable int id) {
+        public Video getVideoById(@PathVariable Long id) {
             return service.getVideoById(id);
         }
 
@@ -28,13 +28,13 @@ public class VideoController {
     }
 
     @PutMapping("/{id}")
-    public Video update(@PathVariable int id, @RequestBody Video video) {
+    public Video update(@PathVariable Long id, @RequestBody Video video) {
 
         return service.updateVideo(id, video);
     }
 
     @DeleteMapping("/{id}")
-    public boolean delete(@PathVariable int id) {
+    public boolean delete(@PathVariable Long id) {
        return service.deleteVideo(id);
     }
 

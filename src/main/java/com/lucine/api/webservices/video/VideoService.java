@@ -15,11 +15,11 @@ public class VideoService {
         return repository.findAll();
     }
 
-    public Video getVideoById(int id) { return repository.findById(id).get(); }
+    public Video getVideoById(Long id) { return repository.findById(id).get(); }
 
     public Video saveVideo(Video video) { return repository.save(video); }
 
-    public Video updateVideo(int id, Video video) {
+    public Video updateVideo(Long id, Video video) {
 
         Video videoToUpdate = repository.findById(id).get();
         videoToUpdate.setTitle(video.getTitle());
@@ -32,7 +32,7 @@ public class VideoService {
         return repository.save(videoToUpdate);
     }
 
-    public boolean deleteVideo(int id) {
+    public boolean deleteVideo(Long id) {
         repository.deleteById(id);
         return true;
     }
