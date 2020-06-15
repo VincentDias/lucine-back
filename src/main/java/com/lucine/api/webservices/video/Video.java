@@ -17,13 +17,10 @@ public class Video {
 
     private int likeCount;
 
+    @Temporal(TemporalType.DATE)
     private Date publishedAt;
 
     private Boolean isChecked;
-
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-//    @JoinColumn(name = "search_id")
-//    private Search search;
 
     public Video() {}
 
