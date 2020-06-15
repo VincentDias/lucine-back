@@ -9,9 +9,8 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/Search")
+@RequestMapping("/search")
 @CrossOrigin
-
 public class SearchController {
 
     @Autowired
@@ -27,19 +26,16 @@ public class SearchController {
         return service.getById(id);
     }
 
-    /*
-    @PostMapping("/searchDate")
-    public List<Search> getDate(@RequestBody Map<Date, Date> body){
-    Date dateresearch = body.get("");
-        return searchRepository.
-    }
+//    @PostMapping("/searchDate")
+//    public List<Search> getDate(@RequestBody Map<Date, Date> body){
+//    Date dateresearch = body.get("");
+//        return searchRepository.
+//    }
 
     @DeleteMapping("{/id}")
-    public void delete(@PathVariable Long id){
-        searchRepository.deleteById(id);
-        return;
+    public Boolean delete(@PathVariable Long id){
+        service.deleteSearch(id);
+        return true;
     }
-
-     */
 
 }
