@@ -22,7 +22,7 @@ public class VideoController {
             return service.getVideoById(id);
         }
 
-    @PostMapping("")
+    @PostMapping()
     public Video create(@RequestBody Video video) {
         return service.saveVideo(video);
     }
