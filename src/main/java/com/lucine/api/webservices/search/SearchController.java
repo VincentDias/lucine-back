@@ -1,6 +1,7 @@
 package com.lucine.api.webservices.search;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -26,16 +27,10 @@ public class SearchController {
         return service.getById(id);
     }
 
-//    @PostMapping("/searchDate")
-//    public List<Search> getDate(@RequestBody Map<Date, Date> body){
-//    Date dateresearch = body.get("");
-//        return searchRepository.
-//    }
-
     @DeleteMapping("{/id}")
-    public Boolean delete(@PathVariable Long id){
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id){
         service.deleteSearch(id);
-        return true;
     }
 
 }

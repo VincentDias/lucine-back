@@ -8,7 +8,7 @@ public class Video {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String title;
 
     private String idYoutube;
@@ -17,21 +17,18 @@ public class Video {
 
     private int likeCount;
 
+    @Temporal(TemporalType.DATE)
     private Date publishedAt;
 
     private Boolean isChecked;
 
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-//    @JoinColumn(name = "search_id")
-//    private Search search;
-
     public Video() {}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
