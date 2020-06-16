@@ -1,10 +1,10 @@
 package com.lucine.api.webservices.user;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.lucine.api.webservices.search.Search;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -19,17 +19,11 @@ public class User {
     private String role;
     private String mail;
 
-    public User(){}
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Search> searchs;
 
-    public User(Long id, String login, String password, String lastName, String firstName, String role, String mail) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.role = role;
-        this.mail = mail;
-    }
+    public User(){}
 
     public Long getId() {
         return id;
@@ -85,5 +79,13 @@ public class User {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public List<Search> getSearchs() {
+        return searchs;
+    }
+
+    public void setSearchs(List<Search> searchs) {
+        this.searchs = searchs;
     }
 }
